@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perangkat Pembelajaran</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kurikulum Merdeka</h1>
+    <h2>SMAN 1 Paguyaman Pantai</h2>
+    <h2>Administrasi Guru Mata Pelajaran Kelas X</h2>
+    <p>Silakan klik tautan di kolom Lihat untuk mengakses perangkat pembelajaran yang sesuai. Centang kolom ADMINISTRASI Guru setelah Anda melengkapi administrasi yang diperlukan.</p>
+    
+    <table>
+        <tr>
+            <th>Mata Pelajaran</th>
+            <th>Lihat</th>
+            <th>Kalender Pendidikan</th>
+            <th>Jadwal Pembelajaran</th>
+            <th>Pekan Efektif</th>
+            <th>Capaian Pembelajaran (CP)</th>
+            <th>Tujuan Pembelajaran (TP)</th>
+            <th>Alur Tujuan Pembelajaran (ATP)</th>
+            <th>KKTP</th>
+            <th>RPP/Modul Ajar/RPL</th>
+            <th>Program Semester</th>
+            <th>Program Tahunan</th>
+            <th>Bahan Ajar</th>
+            <th>Daftar Hadir</th>
+            <th>Daftar Nilai</th>
+            <th>Jurnal Pembelajaran</th>
+        </tr>
+        <tr>
+            <td>Pendidikan Agama Islam</td>
+            <td><a href="#" target="_blank">Lihat</a></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox1"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox2"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox3"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox4"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox5"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox6"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox7"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox8"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox9"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox10"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox11"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox12"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox13"></td>
+            <td><input type="checkbox" class="checkbox" id="checkbox14"></td>
+        </tr>
+        <!-- Tambahkan baris pelajaran lain sesuai kebutuhan -->
+    </table>
+
+    <script>
+        // Fungsi untuk menyimpan status checkbox ke localStorage
+        function saveCheckboxState() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach((checkbox, index) => {
+                localStorage.setItem('checkbox' + index, checkbox.checked);
+            });
+        }
+
+        // Fungsi untuk memuat status checkbox dari localStorage
+        function loadCheckboxState() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach((checkbox, index) => {
+                const checked = localStorage.getItem('checkbox' + index) === 'true';
+                checkbox.checked = checked;
+            });
+        }
+
+        // Jalankan fungsi loadCheckboxState saat halaman dimuat
+        window.onload = loadCheckboxState;
+
+        // Simpan status checkbox setiap kali checkbox diubah
+        const checkboxes = document.querySelectorAll('.checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', saveCheckboxState);
+        });
+    </script>
+</body>
+</html>
